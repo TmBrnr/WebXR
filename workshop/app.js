@@ -130,7 +130,7 @@ class App {
     });
     this.renderer.autoClear = false;
 
-    // Initialize our demo scene.
+    // Initialize our demo scene as determined in the util.js
     this.scene = DemoUtils.createCubeScene();
 
     // We'll update the camera matrices directly from API, so
