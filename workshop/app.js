@@ -181,15 +181,14 @@ class App {
 
   /** Place a sunflower when the screen is tapped. */
   onSelect = () => {
-    this.geometry = new THREE.BoxBufferGeometry( 0.06, 0.06, 0.06 ); 
-     /* if (window.sunflower) {
+     if (window.sunflower) {
        const clone = window.sunflower.clone();
        clone.position.copy(this.reticle.position);
        this.scene.add(clone)
   
        const shadowMesh = this.scene.children.find(c => c.name === 'shadowMesh');
        shadowMesh.position.y = clone.position.y;
-     } */
+     }
    }
 }
 
