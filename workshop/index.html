@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
 /*
- * Copyright 2021 Google Inc. All Rights Reserved.
+ * Copyright 2017 Google Inc. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -31,17 +31,12 @@
     <script src="../shared/utils.js"></script>
   </head>
   <body>
-    <div id="wrong-hosting-root" class="mdc-card demo-card" style="height:2000px">
-      <h2>Wrong hosting root</h2>
-      <p>
-        This application was hosted incorrectly: <code>../shared/app.css</code> could not be found.
-      </p>
-      <p>Make sure you're hosting the entire project root, and not just this folder.</p>
-    </div>
     <div id="enter-ar-info" class="mdc-card demo-card">
       <h2>Augmented Reality with the WebXR Device API</h2>
       <p>
         This is an experiment using augmented reality features with the WebXR Device API.
+        Upon entering AR, you will be surrounded by a world of cubes.
+        Learn more about these features from the <a href="https://codelabs.developers.google.com/codelabs/ar-with-webxr">Building an augmented reality application with the WebXR Device API</a> Code Lab.
       </p>
 
       <!-- Starting an immersive WebXR session requires user interaction. Start the WebXR experience with a simple button. -->
@@ -58,6 +53,6 @@
       </p>
     </div>
     <script src="app.js"></script>
-    <div id="stabilization"></div>
+  <div id="stabilization" />
   </body>
 </html>
