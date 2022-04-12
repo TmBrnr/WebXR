@@ -1,39 +1,35 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Building an augmented reality application with the WebXR Device API</title>
-    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Lecture 3.9</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <!--favicon -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../css/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../css/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../css/favicon/favicon-16x16.png">
+        <link rel="manifest" href="../../css/favicon/site.webmanifest">
+        <link rel="mask-icon" href="../../css/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <!-- end favicon -->
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+	</head>
+	<body>
+        <script src="../../libs/fas.js"></script>
+        <script type="module">
+            import { App } from './app.js';
 
-    <!-- three.js -->
-    <script src="https://unpkg.com/three@0.126.0/build/three.js"></script>
-    <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="../shared/app.css" />
-    <script src="../shared/utils.js"></script>
-  </head>
-  <body>
-    <div id="enter-ar-info" class="mdc-card demo-card">
-      <h2>Augmented Reality with the WebXR Device API</h2>
-      <p>
-        This is an experiment using augmented reality features with the WebXR Device API.
-      </p>
-
-      <!-- Starting an immersive WebXR session requires user interaction. Start the WebXR experience with a simple button. -->
-      <a id="enter-ar" class="mdc-button mdc-button--raised mdc-button--accent">
-        Start augmented reality
-      </a>
-    </div>
-
-    <div id="unsupported-info" class="mdc-card demo-card">
-      <h2>Unsupported Browser</h2>
-      <p>
-        Your browser does not support AR features with WebXR.
-      </p>
-    </div>
-    <script src="app.js"></script>
-  <div id="stabilization" />
-  </body>
+            document.addEventListener("DOMContentLoaded", function(){
+                const app = new App();
+                window.app = app;
+            });
+        </script>
+	</body>
 </html>
