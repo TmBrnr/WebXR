@@ -4,13 +4,7 @@ import { Stats } from '../../libs/stats.module.js';
 import { ARButton } from '../../libs/ARButton.js';
 
 
-var speechElement = new webkitSpeechRecognition();
-speechElement.lang = 'en-US';
-speechElement.interimResults = true;
-speechElement.continous = true;
-var final_transcript = '';
 
-speechElement.start();
 
 class App{
 	constructor(){
@@ -55,6 +49,15 @@ class App{
     }
     
     setupXR(){
+        var speechElement = new webkitSpeechRecognition();
+        speechElement.lang = 'en-US';
+        speechElement.interimResults = true;
+        speechElement.continous = true;
+        var final_transcript = '';
+
+        speechElement.start();
+
+
         this.renderer.xr.enabled = true;
 
         const self = this;
