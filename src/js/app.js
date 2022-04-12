@@ -73,17 +73,19 @@ class App{
             var interim_transcript = '';
             for (var i = event.resultIndex; i < event.results.length; ++i) {
                 if (event.results[i].isFinal) {
-                    if (event.results[i][0].transcript.indexOf('create') == 1) {	
-                        const material = new THREE.MeshStandardMaterial( { color: 0x00ff00 } );
-                        const mesh = new THREE.Mesh( self.geometry, material );
-                        mesh.position.set(0,0,-0.3).applyMatrix4( controller.matrixWorld );
-                        mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
-                        self.scene.add( mesh );
-                        self.meshes.push( mesh );
-                    }
+                    event.results[i][0].transcript;
                 } else {
                     interim_transcript += event.results[i][0].transcript;
                 }
+            }
+
+            if (final_transcript.indexOf('create') == 1) {	
+                const material = new THREE.MeshStandardMaterial( { color: 0x00ff00 } );
+                const mesh = new THREE.Mesh( self.geometry, material );
+                mesh.position.set(0,0,-0.3).applyMatrix4( controller.matrixWorld );
+                mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
+                self.scene.add( mesh );
+                self.meshes.push( mesh );
             }
         }
 
