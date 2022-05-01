@@ -30,10 +30,7 @@ function record() {
 		    }
 
 		    console.log("webkitSpeechRecognition is available.");
-		  } else {
-		    console.log("webkitSpeechRecognition is not available.");
 		  }
-}
 
 class App{
 	constructor(){
@@ -115,11 +112,11 @@ class App{
 	    
         function onSelect() {
             const material = new THREE.MeshStandardMaterial( { color: 0x00ff00 } );
-		const mesh = new THREE.Mesh( self.geometry, material );
-		mesh.position.set(0,0,-0.3).applyMatrix4( controller.matrixWorld );
-		mesh.quaternion.setFromRotationMatrix( controller.matrixWorld ); 
-		self.scene.add( mesh ); 
-		self.meshes.push( mesh );
+		    const mesh = new THREE.Mesh( self.geometry, material );
+		    mesh.position.set(0,0,-0.3).applyMatrix4( controller.matrixWorld );
+		    mesh.quaternion.setFromRotationMatrix( controller.matrixWorld ); 
+		    self.scene.add( mesh ); 
+		    self.meshes.push( mesh );
 		}
 	
         const btn = new ARButton( this.renderer );
