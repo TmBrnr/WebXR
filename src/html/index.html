@@ -1,7 +1,34 @@
-<script type="importmap">
-      {
-        "imports": {
-          "three": "https://unpkg.com/three@0.133.0/build/three.module.js"
-        }
-      }
-</script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <!-- import the webpage's javascript file -->
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="color-toggle.js"></script>
+    <script src="target-marker.js"></script>
+  </head>
+
+  <body style="margin: 0px; overflow: hidden">
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+    >
+      <a-assets>
+        <a-asset-item
+          id="würfel"
+          src="https://cdn.glitch.global/8202a01b-4f4c-4ab7-a0ac-dd98ce589049/prak3_tim_mueller.glb?v=1650708209306"
+        ></a-asset-item>
+      </a-assets>
+
+      <a-marker type="barcode" value="7" smooth="true">
+        <a-entity position="0 0.5 0" scale="0.2 0.2 0.2" gltf-model="#würfel">
+        </a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
