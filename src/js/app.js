@@ -73,12 +73,11 @@ class App{
             for (var i = event.resultIndex; i < event.results.length; ++i) {
                 if (event.results[i].isFinal) {
                     event.results[i][0].transcript;
+			alert();
                 } else {
                     interim_transcript += event.results[i][0].transcript;
+			alert("Went second");
                 }
-		if(interim_transcript.indexOf('create') == 1) {
-			alert();
-		}
             }
 		
         }
