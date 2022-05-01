@@ -50,10 +50,7 @@ class App{
     
     setupXR(){
         var speechElement = new webkitSpeechRecognition();
-        speechElement.lang = 'en-US';
-        speechElement.interimResults = true;
-        speechElement.continous = true;
-
+        
 
         speechElement.start();
 
@@ -84,15 +81,48 @@ class App{
 	speechElement.recognition.onerror = function(event) {
       		alert("Error");
         }
-
+	
+	   
+	    
         function onSelect() {
-            const material = new THREE.MeshStandardMaterial( { color: 0x00ff00 } );
-            const mesh = new THREE.Mesh( self.geometry, material );
-            mesh.position.set(0,0,-0.3).applyMatrix4( controller.matrixWorld );
-            mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
-            self.scene.add( mesh );
-            self.meshes.push( mesh );
-        }
+            this.recognition = new webkitSpeechRecognition();
+	    // settings
+			this.recognition.continuous = false; // stop automatically
+			this.recognition.interimResults = true;
+			this.recognition.lang = 'en-US';
+
+		    this.startCapture = function() {
+		      this.recognition.start();
+		    }
+
+		    this.stopCapture = function() {
+		      this.recognition.stop();
+		    }
+
+		    this.recognition.onresult = function(event) {
+		      console.log(event.results[0][0].transcript);
+		      //$('#output').text(event.results[0][0].transcript);
+			alert("worked");
+			    
+			    
+			const material = new THREE.MeshStandardMaterial( { color: 0x00ff00 } );
+		    	const mesh = new THREE.Mesh( self.geometry, material );
+		    	mesh.position.set(0,0,-0.3).applyMatrix4( controller.matrixWorld );
+		    	mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
+		    	self.scene.add( mesh );
+		    	self.meshes.push( mesh );
+		    }
+
+		    this.recognition.onerror = function(event) {
+		      console.log(event.error);
+		    }
+
+		    console.log("webkitSpeechRecognition is available.");
+		  } else {
+		    console.log("webkitSpeechRecognition is not available.");
+		  }
+		}
+	
         const btn = new ARButton( this.renderer );
 
         controller = this.renderer.xr.getController(0);
