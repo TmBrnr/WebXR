@@ -79,7 +79,10 @@ class App{
 			alert("Went second");
                 }
             }
-		
+    	}
+
+	speechElement.recognition.onerror = function(event) {
+      		alert("Error");
         }
 
         function onSelect() {
