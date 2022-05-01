@@ -103,14 +103,6 @@ class App{
 		      console.log(event.results[0][0].transcript);
 		      //$('#output').text(event.results[0][0].transcript);
 			alert("worked");
-			    
-			    
-			const material = new THREE.MeshStandardMaterial( { color: 0x00ff00 } );
-		    	const mesh = new THREE.Mesh( self.geometry, material );
-		    	mesh.position.set(0,0,-0.3).applyMatrix4( controller.matrixWorld );
-		    	mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
-		    	self.scene.add( mesh );
-		    	self.meshes.push( mesh );
 		    }
 
 		    this.recognition.onerror = function(event) {
