@@ -53,7 +53,6 @@ class App{
         speechElement.lang = 'en-US';
         speechElement.interimResults = true;
         speechElement.continous = true;
-        var final_transcript = '';
 
 
         speechElement.start();
@@ -77,16 +76,11 @@ class App{
                 } else {
                     interim_transcript += event.results[i][0].transcript;
                 }
+		if(interim_transcript.indexOf('create') == 1) {
+			alert();
+		}
             }
-
-            if (final_transcript.indexOf('create') == 1) {	
-                const material = new THREE.MeshStandardMaterial( { color: 0x00ff00 } );
-                const mesh = new THREE.Mesh( self.geometry, material );
-                mesh.position.set(0,0,-0.3).applyMatrix4( controller.matrixWorld );
-                mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
-                self.scene.add( mesh );
-                self.meshes.push( mesh );
-            }
+		
         }
 
         function onSelect() {
